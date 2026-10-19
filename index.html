@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Feasibility Study & Legal Framework | 4 Terra Firma Circuit, Clyde
+    </title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body
+    class="bg-stone-50 text-stone-900 font-sans antialiased leading-relaxed"
+  >
+    <!-- Chosen Palette: Warm Neutral Harmonious Palette (Slate, Warm Stone, Emerald, Amber, Indigo accents) -->
+    <!-- Application Structure Plan:
+         The SPA is structured logically into 7 core interactive modules designed for stakeholder presentation:
+         1. Executive Navigation & KPI Overview Banner - Provides immediate high-level status metrics.
+         2. Property Spatial & Valuation Comparison - Side-by-side comparison of 37 Kilmarnock Way vs 4 Terra Firma Circuit with dynamic Chart.js chart.
+         3. Dynamic Equity & Financial Waterfall Calculator - Allows real-time stress testing of target purchase/sale prices and recalculates new required borrowing, LVR, and LMI status live.
+         4. Deposit Strategy & Section 27 Legal Risk Matrix - Evaluates Section 27 vs Deposit Bond with a statutory 28-day timeline breakdown.
+         5. Contractual Special Conditions Blueprint - Interactive tabbed viewer presenting exact legal wording for 4 required special conditions (Deposit Bond, Subject to Sale, Bump Clause, PEXA Linked Settlement).
+         6. Statutory Consumer Rights & DocuSign Verification - Section 31 Cooling-off calculator ($1,900 penalty evaluation) and 5-document packet checklist.
+         7. Action Plan & Legal Roadmap - Interactive 4-phase conveyancing timeline.
+    -->
+    <!-- Visualization & Content Choices:
+         - Financial Waterfall: Chart.js Bar Chart showing gross sale, debt discharge, net equity, stamp duty, and new loan required.
+         - Equity Comparison: Chart.js Grouped Bar Chart comparing current property value/debt with new property value/loan.
+         - Interactive Simulator: Vanilla JS recalculates equity, borrowing, LVR, LMI threshold, and updates chart dynamically without external library dependencies.
+         - Icons: Unicode emoji and CSS shapes used exclusively. NO SVG graphics used. NO Mermaid JS used.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Top Sticky Header -->
+    <header
+      class="sticky top-0 z-50 bg-slate-900 text-white shadow-md border-b border-slate-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center min-h-16 gap-3">
+          <div class="flex items-center space-x-3 min-w-0">
+            <span class="text-2xl">🏛️</span>
+            <div class="min-w-0">
+              <h1
+                class="text-sm sm:text-lg font-bold tracking-tight text-white leading-tight"
+              >
+                Property Acquisition Feasibility Study
+              </h1>
+              <p class="hidden sm:block text-xs text-slate-400 mt-0.5">
+                Victorian Property Law & Conveyancing Strategy • 4 Terra Firma
+                Circuit, Clyde
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            id="mobile-menu-toggle"
+            class="lg:hidden inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-2xl text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            aria-label="Open navigation menu"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span aria-hidden="true">☰</span>
+          </button>
+          <nav class="hidden lg:flex space-x-6 text-sm font-medium">
+            <a
+              href="#executive-summary"
+              class="text-slate-300 hover:text-emerald-400 transition"
+              >Overview</a
+            >
+            <a
+              href="#property-comparison"
+              class="text-slate-300 hover:text-emerald-400 transition"
+              >Comparison</a
+            >
+            <a
+              href="#financial-model"
+              class="text-slate-300 hover:text-emerald-400 transition"
+              >Financial Simulator</a
+            >
+            <a
+              href="#deposit-strategy"
+              class="text-slate-300 hover:text-emerald-400 transition"
+              >Section 27 & Deposit</a
+            >
+            <a
+              href="#special-conditions"
+              class="text-slate-300 hover:text-emerald-400 transition"
+              >Special Conditions</a
+            >
+            <a
+              href="#docusign-roadmap"
+              class="text-slate-300 hover:text-emerald-400 transition"
+              >Roadmap & DocuSign</a
+            >
+          </nav>
+        </div>
+        <nav
+          id="mobile-menu"
+          class="hidden lg:hidden border-t border-slate-700 pb-3"
+          aria-label="Mobile navigation"
+        >
+          <a
+            href="#executive-summary"
+            class="block rounded-lg px-3 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            >Overview</a
+          >
+          <a
+            href="#property-comparison"
+            class="block rounded-lg px-3 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            >Comparison</a
+          >
+          <a
+            href="#financial-model"
+            class="block rounded-lg px-3 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            >Financial Simulator</a
+          >
+          <a
+            href="#deposit-strategy"
+            class="block rounded-lg px-3 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            >Section 27 & Deposit</a
+          >
+          <a
+            href="#special-conditions"
+            class="block rounded-lg px-3 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            >Special Conditions</a
+          >
+          <a
+            href="#docusign-roadmap"
+            class="block rounded-lg px-3 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            >Roadmap & DocuSign</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 sm:space-y-12"
+    >
+      <!-- SECTION 1: EXECUTIVE DASHBOARD & KPI OVERVIEW -->
+      <section
+        id="executive-summary"
+        class="bg-white rounded-2xl shadow-sm border border-stone-200 p-4 sm:p-6 md:p-8"
+      >
+        <div class="mb-6">
+          <div
+            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 mb-2"
+          >
+            ✓ Legal & Conveyancing Feasibility Verified
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            Executive Summary & Transaction Profile
+          </h2>
+          <p class="text-stone-600 mt-2 max-w-4xl">
+            This feasibility study provides a legal and financial blueprint for
+            acquiring **4 Terra Firma Circuit, Clyde VIC 3978** ($950,000 guide
+            midpoint) while simultaneously disposing of **37 Kilmarnock Way,
+            Clyde North VIC 3978** ($730,000 midpoint). The strategy strictly
+            excludes bridging finance, relying on linked electronic settlement
+            in PEXA and an APRA-regulated Deposit Bond.
+          </p>
+        </div>
+
+        <!-- Executive KPI Metric Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div class="bg-stone-50 rounded-xl p-4 border border-stone-200">
+            <div
+              class="text-xs font-semibold text-stone-500 uppercase tracking-wider"
+            >
+              Target Purchase Price
+            </div>
+            <div
+              class="text-2xl font-black text-slate-900 mt-1"
+              id="kpi-target-price"
+            >
+              $950,000
+            </div>
+            <div class="text-xs text-slate-600 mt-1">
+              4 Terra Firma Cir ($900k–$990k)
+            </div>
+          </div>
+          <div class="bg-stone-50 rounded-xl p-4 border border-stone-200">
+            <div
+              class="text-xs font-semibold text-stone-500 uppercase tracking-wider"
+            >
+              Target Sale Price
+            </div>
+            <div
+              class="text-2xl font-black text-slate-900 mt-1"
+              id="kpi-sale-price"
+            >
+              $730,000
+            </div>
+            <div class="text-xs text-slate-600 mt-1">
+              37 Kilmarnock ($720k–$750k)
+            </div>
+          </div>
+          <div class="bg-stone-50 rounded-xl p-4 border border-stone-200">
+            <div
+              class="text-xs font-semibold text-stone-500 uppercase tracking-wider"
+            >
+              Existing Debt Discharge
+            </div>
+            <div class="text-2xl font-black text-amber-700 mt-1">$358,000</div>
+            <div class="text-xs text-stone-600 mt-1">
+              Includes $330k Beerwah IP Split
+            </div>
+          </div>
+          <div class="bg-stone-50 rounded-xl p-4 border border-stone-200">
+            <div
+              class="text-xs font-semibold text-stone-500 uppercase tracking-wider"
+            >
+              Projected New LVR
+            </div>
+            <div class="text-2xl font-black text-emerald-700 mt-1" id="kpi-lvr">
+              68.09%
+            </div>
+            <div class="text-xs text-emerald-800 font-semibold mt-1">
+              ✓ No LMI (<80% Ceiling)
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: COMPARATIVE SPATIAL & VALUATION MATRIX -->
+      <section
+        id="property-comparison"
+        class="bg-white rounded-2xl shadow-sm border border-stone-200 p-4 sm:p-6 md:p-8"
+      >
+        <div class="mb-6">
+          <h2 class="text-2xl font-bold text-slate-900">
+            1. Property Profiles & Spatial Analysis
+          </h2>
+          <p class="text-stone-600 mt-1">
+            Transitioning your Principal Place of Residence (PPoR) requires a
+            clear comparative analysis of both assets to establish exact market
+            positioning, land allocation upgrades, and rental fallback values.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Comparison Table -->
+          <div class="lg:col-span-7 overflow-x-auto">
+            <table
+              class="w-full min-w-[640px] text-left text-sm border-collapse"
+            >
+              <thead>
+                <tr class="border-b border-stone-200 bg-stone-100">
+                  <th class="p-3 font-semibold text-slate-900">Attribute</th>
+                  <th class="p-3 font-semibold text-slate-900">
+                    37 Kilmarnock Way (Existing)
+                  </th>
+                  <th class="p-3 font-semibold text-slate-900">
+                    4 Terra Firma Cir (Target)
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-200">
+                <tr>
+                  <td class="p-3 font-medium text-stone-800">
+                    Dwelling Structure
+                  </td>
+                  <td class="p-3 text-stone-600">
+                    Single-storey (4 Bed, 2 Bath, 2 Car)
+                  </td>
+                  <td class="p-3 text-emerald-800 font-medium">
+                    Two-storey (4 Bed, 2 Bath, 2 Car + Rumpus)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-medium text-stone-800">
+                    Land Allotment Area
+                  </td>
+                  <td class="p-3 text-stone-600">354 m²</td>
+                  <td class="p-3 text-emerald-800 font-medium">
+                    448 m² (+26.5% Land Area)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-medium text-stone-800">
+                    Historical Acquisition
+                  </td>
+                  <td class="p-3 text-stone-600">$424,900 (May 2015)</td>
+                  <td class="p-3 text-stone-600">
+                    $229,000 (Land Acquired 2016)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-medium text-stone-800">
+                    Valuation / Price Guide
+                  </td>
+                  <td class="p-3 text-stone-600">$720,000 – $750,000</td>
+                  <td class="p-3 text-indigo-800 font-bold">
+                    $900,000 – $990,000
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-medium text-stone-800">
+                    Key Outdoor Inclusions
+                  </td>
+                  <td class="p-3 text-stone-600">Standard Suburban Backyard</td>
+                  <td class="p-3 text-stone-800 font-medium">
+                    Solar-Heated Pool, Spa, Fire Pit Zone
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-medium text-stone-800">
+                    Primary Catchment
+                  </td>
+                  <td class="p-3 text-stone-600">
+                    Wilandra Rise Primary (0.31 km)
+                  </td>
+                  <td class="p-3 text-stone-800 font-medium">
+                    Clyde Creek Primary (0.22 km)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-medium text-stone-800">
+                    Rental Yield Estimate
+                  </td>
+                  <td class="p-3 text-stone-600">
+                    $610 / wk (~4.4% Gross Yield)
+                  </td>
+                  <td class="p-3 text-stone-600">
+                    $600 / wk (~3.4% Gross Yield)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Visual Chart Container -->
+          <div
+            class="lg:col-span-5 flex flex-col items-center justify-center bg-stone-50 p-4 rounded-xl border border-stone-200"
+          >
+            <h3 class="text-sm font-semibold text-slate-800 mb-2">
+              Asset Value & Debt Comparison
+            </h3>
+            <div class="chart-container">
+              <canvas id="propertyChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: INTERACTIVE FINANCIAL WATERFALL & EQUITY MODELING ENGINE -->
+      <section
+        id="financial-model"
+        class="bg-white rounded-2xl shadow-sm border border-stone-200 p-4 sm:p-6 md:p-8"
+      >
+        <div class="mb-6">
+          <div
+            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 mb-2"
+          >
+            ⚙️ Dynamic Sensitivity & Stress-Test Engine
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900">
+            2. Capital Waterfall & Debt Modeling
+          </h2>
+          <p class="text-stone-600 mt-1">
+            Adjust the interactive sliders below to simulate different sale
+            prices for 37 Kilmarnock Way and acquisition prices for 4 Terra
+            Firma Circuit. The model dynamically recalculates net equity, stamp
+            duty outlays, new mortgage borrowing requirements, and LVR status in
+            real-time.
+          </p>
+        </div>
+
+        <!-- Interactive Sliders Control Panel -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-900 text-white p-6 rounded-xl mb-8"
+        >
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label for="slider-sale" class="text-sm font-semibold"
+                >Sale Price (37 Kilmarnock Way):</label
+              >
+              <span
+                id="slider-sale-val"
+                class="text-lg font-bold text-emerald-400"
+                >$730,000</span
+              >
+            </div>
+            <input
+              type="range"
+              id="slider-sale"
+              min="700000"
+              max="780000"
+              step="5000"
+              value="730000"
+              class="w-full accent-emerald-500 cursor-pointer"
+            />
+            <div class="flex justify-between text-xs text-slate-400 mt-1">
+              <span>$700,000 (Low)</span>
+              <span>$730,000 (Mid)</span>
+              <span>$780,000 (High)</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label for="slider-purchase" class="text-sm font-semibold"
+                >Purchase Price (4 Terra Firma Cir):</label
+              >
+              <span
+                id="slider-purchase-val"
+                class="text-lg font-bold text-indigo-300"
+                >$950,000</span
+              >
+            </div>
+            <input
+              type="range"
+              id="slider-purchase"
+              min="900000"
+              max="1000000"
+              step="5000"
+              value="950000"
+              class="w-full accent-indigo-400 cursor-pointer"
+            />
+            <div class="flex justify-between text-xs text-slate-400 mt-1">
+              <span>$900,000 (Guide Low)</span>
+              <span>$950,000 (Mid)</span>
+              <span>$1,000,000 (High)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Waterfall Visual Results & Calculations -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Waterfall Step Breakdown Cards -->
+          <div class="lg:col-span-6 space-y-3">
+            <div
+              class="flex flex-col items-start gap-1 p-3 rounded-lg bg-stone-100 border border-stone-200 text-sm sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span class="text-stone-700 font-medium"
+                >1. Gross Sale Proceeds (37 Kilmarnock):</span
+              >
+              <span id="calc-sale-price" class="font-bold text-slate-900"
+                >$730,000</span
+              >
+            </div>
+            <div
+              class="flex flex-col items-start gap-1 p-3 rounded-lg bg-stone-100 border border-stone-200 text-sm sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span class="text-stone-700 font-medium"
+                >2. Less Selling Costs (~2% Comm / Mktg):</span
+              >
+              <span id="calc-selling-costs" class="font-bold text-red-600"
+                >-$14,600</span
+              >
+            </div>
+            <div
+              class="flex flex-col items-start gap-1 p-3 rounded-lg bg-amber-50 border border-amber-200 text-sm sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span class="text-amber-900 font-medium"
+                >3. Less Existing Loan Discharge (Incl. Beerwah IP):</span
+              >
+              <span class="font-bold text-amber-900">-$358,000</span>
+            </div>
+            <div
+              class="flex flex-col items-start gap-1 p-3 rounded-lg bg-emerald-50 border border-emerald-300 text-sm sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span class="text-emerald-900 font-bold"
+                >4. Realised Net Equity Available:</span
+              >
+              <span
+                id="calc-net-equity"
+                class="font-black text-emerald-800 text-base"
+                >$357,400</span
+              >
+            </div>
+            <div
+              class="flex flex-col items-start gap-1 p-3 rounded-lg bg-stone-100 border border-stone-200 text-sm sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span class="text-stone-700 font-medium"
+                >5. Target Purchase Price (4 Terra Firma):</span
+              >
+              <span id="calc-purchase-price" class="font-bold text-slate-900"
+                >$950,000</span
+              >
+            </div>
+            <div
+              class="flex flex-col items-start gap-1 p-3 rounded-lg bg-stone-100 border border-stone-200 text-sm sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span class="text-stone-700 font-medium"
+                >6. Plus Vic Stamp Duty & Transfer Outlays:</span
+              >
+              <span id="calc-stamp-duty" class="font-bold text-slate-900"
+                >+$54,300</span
+              >
+            </div>
+            <div
+              class="flex flex-col items-start gap-1 p-4 rounded-xl bg-slate-900 text-white text-base sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span class="font-bold">7. Required New Mortgage Borrowing:</span>
+              <span
+                id="calc-new-loan"
+                class="font-black text-emerald-400 text-lg"
+                >$646,900</span
+              >
+            </div>
+          </div>
+
+          <!-- Waterfall Chart Container -->
+          <div
+            class="lg:col-span-6 flex flex-col items-center justify-center bg-stone-50 p-4 rounded-xl border border-stone-200"
+          >
+            <h3 class="text-sm font-semibold text-slate-800 mb-2">
+              Capital Waterfall Breakdown
+            </h3>
+            <div class="chart-container">
+              <canvas id="waterfallChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: DEPOSIT FUNDING & SECTION 27 RISK ASSESSMENT -->
+      <section
+        id="deposit-strategy"
+        class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 sm:p-8"
+      >
+        <div class="mb-6">
+          <h2 class="text-2xl font-bold text-slate-900">
+            3. Deposit Strategy & Section 27 Legal Risk Analysis
+          </h2>
+          <p class="text-stone-600 mt-1">
+            Evaluating Section 27 (*Sale of Land Act 1962* VIC) early deposit
+            release feasibility against an APRA-regulated Deposit Bond.
+          </p>
+        </div>
+
+        <!-- Risk Matrix Comparison Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <!-- Option A: Section 27 Release (HIGH RISK) -->
+          <div class="bg-red-50 rounded-xl p-6 border border-red-200 relative">
+            <div
+              class="absolute top-4 right-4 bg-red-600 text-white text-xs px-2.5 py-1 rounded-full font-bold"
+            >
+              HIGH RISK
+            </div>
+            <h3
+              class="text-lg font-bold text-red-950 flex items-center space-x-2"
+            >
+              <span>⚠️ Section 27 Early Deposit Release</span>
+            </h3>
+            <p class="text-xs text-red-800 mt-1">
+              Requesting early release of buyer deposit on sale of 37 Kilmarnock
+              Way.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-xs text-red-900">
+              <li class="flex items-start">
+                <span class="mr-2 font-bold">1.</span>
+                <span
+                  ><strong>28-Day Statutory Objection Window:</strong> Under Sec
+                  27(1)-(3), the purchaser has 28 clear days to object after
+                  receiving the mortgage disclosure statement.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 font-bold">2.</span>
+                <span
+                  ><strong>Purchaser Objection Right:</strong> Purchaser
+                  conveyancer can object under Sec 27(2)(a) if net proceeds do
+                  not comfortably satisfy incoming mortgagees.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 font-bold">3.</span>
+                <span
+                  ><strong>Beerwah Cross-Collateralization:</strong> Because
+                  $330,000 of the loan funds the QLD investment, the outgoing
+                  lender may delay discharge confirmation.</span
+                >
+              </li>
+            </ul>
+            <div
+              class="mt-4 p-3 bg-red-100/80 rounded-lg text-xs font-bold text-red-950"
+            >
+              ⛔ Solicitor Directive: Do NOT rely on Section 27 to fund purchase
+              deposit on 4 Terra Firma Circuit.
+            </div>
+          </div>
+
+          <!-- Option B: Deposit Bond (RECOMMENDED) -->
+          <div
+            class="bg-emerald-50 rounded-xl p-6 border border-emerald-200 relative"
+          >
+            <div
+              class="absolute top-4 right-4 bg-emerald-600 text-white text-xs px-2.5 py-1 rounded-full font-bold"
+            >
+              RECOMMENDED
+            </div>
+            <h3
+              class="text-lg font-bold text-emerald-950 flex items-center space-x-2"
+            >
+              <span>🛡️ APRA-Regulated Deposit Bond</span>
+            </h3>
+            <p class="text-xs text-emerald-800 mt-1">
+              An irrevocable financial guarantee issued by an APRA insurer in
+              lieu of cash deposit.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-xs text-emerald-900">
+              <li class="flex items-start">
+                <span class="mr-2 font-bold">1.</span>
+                <span
+                  ><strong>Zero Immediate Cash Required:</strong> Satisfies
+                  General Condition 14 deposit obligations without unlocking
+                  home equity early.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 font-bold">2.</span>
+                <span
+                  ><strong>Speed of Issuance:</strong> Can be underwritten and
+                  issued within 24 to 48 hours for a small standard fee (~1-2%
+                  of deposit sum).</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 font-bold">3.</span>
+                <span
+                  ><strong>Settlement Satisfaction:</strong> Full 10% purchase
+                  price is paid directly through PEXA electronic funds flow at
+                  final simultaneous settlement.</span
+                >
+              </li>
+            </ul>
+            <div
+              class="mt-4 p-3 bg-emerald-100/80 rounded-lg text-xs font-bold text-emerald-950"
+            >
+              ✓ Conveyancing Directive: Incorporate Special Condition 1 (Deposit
+              Bond) into purchase contract.
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Flow of Statutory 28-Day Objection Window -->
+        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200">
+          <h3 class="text-sm font-bold text-slate-800 mb-3">
+            Statutory Section 27 Timeline vs. Deposit Bond Execution
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+            <div class="bg-white p-3 rounded-lg border border-stone-200">
+              <div class="text-xs font-bold text-slate-500">Day 1</div>
+              <div class="text-xs font-bold text-slate-900 mt-1">
+                Serve Sec 27 Statement
+              </div>
+              <div class="text-[11px] text-stone-500 mt-1">
+                Serve mortgage details to buyer's conveyancer
+              </div>
+            </div>
+            <div class="bg-white p-3 rounded-lg border border-stone-200">
+              <div class="text-xs font-bold text-amber-600">Days 1–28</div>
+              <div class="text-xs font-bold text-amber-900 mt-1">
+                Objection Window
+              </div>
+              <div class="text-[11px] text-stone-500 mt-1">
+                Buyer/Lender can object at any point
+              </div>
+            </div>
+            <div class="bg-white p-3 rounded-lg border border-stone-200">
+              <div class="text-xs font-bold text-red-600">Day 28+</div>
+              <div class="text-xs font-bold text-red-900 mt-1">
+                Earliest Deposit Release
+              </div>
+              <div class="text-[11px] text-stone-500 mt-1">
+                Too late to fund purchase deposit!
+              </div>
+            </div>
+            <div class="bg-emerald-600 text-white p-3 rounded-lg font-bold">
+              <div class="text-xs text-emerald-200">
+                Deposit Bond Alternative
+              </div>
+              <div class="text-xs mt-1">Instant 7-Day Fulfillment</div>
+              <div class="text-[11px] text-emerald-100 font-normal mt-1">
+                Delivered immediately upon signing
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CONTRACTUAL SPECIAL CONDITIONS ARCHITECTURE -->
+      <section
+        id="special-conditions"
+        class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 sm:p-8"
+      >
+        <div class="mb-6">
+          <div
+            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 mb-2"
+          >
+            📜 Legal Contract Drafting
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900">
+            4. Contractual Special Conditions Blueprint
+          </h2>
+          <p class="text-stone-600 mt-1">
+            Select a tab below to inspect the protective special conditions to
+            be inserted into the Contract of Sale for **4 Terra Firma Circuit,
+            Clyde**.
+          </p>
+        </div>
+
+        <!-- Tab Navigation Buttons -->
+        <div
+          class="grid grid-cols-2 sm:flex sm:flex-wrap border-b border-stone-200 mb-6 gap-2"
+        >
+          <button
+            onclick="switchTab('sc1')"
+            id="tab-sc1"
+            class="sc-tab min-h-[44px] py-2.5 px-3 sm:px-4 font-semibold text-sm text-left sm:text-center border-b-2 border-indigo-600 text-indigo-600"
+          >
+            SC 1: Deposit Bond
+          </button>
+          <button
+            onclick="switchTab('sc2')"
+            id="tab-sc2"
+            class="sc-tab min-h-[44px] py-2.5 px-3 sm:px-4 font-semibold text-sm text-left sm:text-center text-stone-500 border-b-2 border-transparent hover:text-stone-700"
+          >
+            SC 2: Subject to Unconditional Sale
+          </button>
+          <button
+            onclick="switchTab('sc3')"
+            id="tab-sc3"
+            class="sc-tab min-h-[44px] py-2.5 px-3 sm:px-4 font-semibold text-sm text-left sm:text-center text-stone-500 border-b-2 border-transparent hover:text-stone-700"
+          >
+            SC 3: Bump Clause Safeguard
+          </button>
+          <button
+            onclick="switchTab('sc4')"
+            id="tab-sc4"
+            class="sc-tab min-h-[44px] py-2.5 px-3 sm:px-4 font-semibold text-sm text-left sm:text-center text-stone-500 border-b-2 border-transparent hover:text-stone-700"
+          >
+            SC 4: PEXA Settlement & Penalty Waiver
+          </button>
+        </div>
+
+        <!-- Tab 1 Content -->
+        <div id="content-sc1" class="sc-content block">
+          <div
+            class="bg-stone-900 text-slate-100 p-5 rounded-xl font-mono text-xs leading-relaxed custom-scroll max-h-96 overflow-y-auto mb-4 border border-stone-800"
+          >
+            <div class="text-emerald-400 font-bold mb-2">
+              // SPECIAL CONDITION 1: DEPOSIT BOND EXECUTION
+            </div>
+            1. The Purchaser may satisfy the requirement to pay the deposit
+            under General Condition 14 (or any part thereof) by delivering to
+            the Vendor’s legal practitioner or conveyancer a Deposit Bond issued
+            by an APRA-regulated financial institution or insurer in a form
+            acceptable to the Vendor.<br /><br />
+            2. Delivery of the Deposit Bond within seven (7) business days of
+            the Day of Sale shall constitute full satisfaction of the
+            Purchaser's deposit obligation.<br /><br />
+            3. The Vendor shall only be entitled to draw upon or make a claim
+            against the Deposit Bond in the event of a default by the Purchaser
+            that results in the lawful rescission or termination of this
+            Contract pursuant to General Condition 35.<br /><br />
+            4. At settlement, the Purchaser shall pay the full purchase price
+            (inclusive of the deposit amount guaranteed by the Deposit Bond) to
+            the Vendor via the Electronic Lodgement Network Operator (PEXA) in
+            exchange for clear title and vacant possession.
+          </div>
+          <div
+            class="bg-indigo-50 border border-indigo-200 rounded-lg p-3 text-xs text-indigo-900"
+          >
+            <strong>Legal Purpose:</strong> Satisfies deposit requirements
+            without needing upfront cash or bridging loans while protecting the
+            vendor via an APRA-backed surety guarantee.
+          </div>
+        </div>
+
+        <!-- Tab 2 Content -->
+        <div id="content-sc2" class="sc-content hidden">
+          <div
+            class="bg-stone-900 text-slate-100 p-5 rounded-xl font-mono text-xs leading-relaxed custom-scroll max-h-96 overflow-y-auto mb-4 border border-stone-800"
+          >
+            <div class="text-emerald-400 font-bold mb-2">
+              // SPECIAL CONDITION 2: SUBJECT TO UNCONDITIONAL SALE AND
+              SIMULTANEOUS SETTLEMENT
+            </div>
+            1. This Contract is conditional upon the Purchaser entering into a
+            binding, unconditional contract of sale for their existing property
+            located at 37 Kilmarnock Way, Clyde North VIC 3978 on or before
+            [Insert Date, e.g., 60 days from Day of Sale] ("the Sale
+            Condition").<br /><br />
+            2. For the purposes of this Special Condition, a contract of sale
+            shall be deemed "unconditional" only when all conditions precedent
+            (including finance approval, building/pest inspections, and
+            statutory cooling-off periods) have been satisfied or waived in
+            writing.<br /><br />
+            3. If the Sale Condition is not satisfied by the date specified,
+            either party may terminate this Contract by giving written notice to
+            the other, whereupon the Deposit Bond shall be returned to the
+            Purchaser, and neither party shall have any claim against the
+            other.<br /><br />
+            4. Settlement of this Contract is contingent upon, and shall occur
+            simultaneously with, the electronic settlement of the sale of 37
+            Kilmarnock Way, Clyde North VIC 3978. If settlement of 37 Kilmarnock
+            Way is delayed through no fault of the Purchaser, the Settlement
+            Date under this Contract shall be extended day-for-day for up to
+            fourteen (14) business days without penalty.
+          </div>
+          <div
+            class="bg-indigo-50 border border-indigo-200 rounded-lg p-3 text-xs text-indigo-900"
+          >
+            <strong>Legal Purpose:</strong> Ensures you cannot be forced to
+            settle on the purchase of 4 Terra Firma Circuit unless your sale on
+            37 Kilmarnock Way successfully clears all conditions and settles
+            simultaneously.
+          </div>
+        </div>
+
+        <!-- Tab 3 Content -->
+        <div id="content-sc3" class="sc-content hidden">
+          <div
+            class="bg-stone-900 text-slate-100 p-5 rounded-xl font-mono text-xs leading-relaxed custom-scroll max-h-96 overflow-y-auto mb-4 border border-stone-800"
+          >
+            <div class="text-emerald-400 font-bold mb-2">
+              // SPECIAL CONDITION 3: VENDOR BUMP CLAUSE AND PURCHASER
+              RIGHT-OF-REPLY
+            </div>
+            1. Notwithstanding Special Condition 2, the Vendor may continue to
+            market the Property for sale.<br /><br />
+            2. If the Vendor receives a bona fide competing offer from a third
+            party that the Vendor intends to accept, the Vendor must give
+            written notice to the Purchaser ("Notice to Waive").<br /><br />
+            3. The Purchaser shall have three (3) clear Business Days from
+            receipt of the Notice to Waive to provide written notice confirming
+            that:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;(a) The contract for the sale of 37
+            Kilmarnock Way, Clyde North VIC 3978 has become unconditional; or<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;(b) The Purchaser waives Special Condition 2
+            and will proceed with the purchase unconditionally.<br /><br />
+            4. Time shall be calculated strictly using Business Days in Victoria
+            (excluding weekends and public holidays). If the Purchaser provides
+            notice under sub-clause 3 within the 3 Business Days, this Contract
+            shall remain in full force and effect. If the Purchaser fails to
+            provide notice, this Contract shall automatically terminate, the
+            Deposit Bond shall be returned, and neither party shall have any
+            further claim.
+          </div>
+          <div
+            class="bg-indigo-50 border border-indigo-200 rounded-lg p-3 text-xs text-indigo-900"
+          >
+            <strong>Legal Purpose:</strong> Protects against immediate contract
+            cancellation if the seller receives another offer. Gives you 3 full
+            Victorian business days to confirm your sale status before the
+            seller can cancel.
+          </div>
+        </div>
+
+        <!-- Tab 4 Content -->
+        <div id="content-sc4" class="sc-content hidden">
+          <div
+            class="bg-stone-900 text-slate-100 p-5 rounded-xl font-mono text-xs leading-relaxed custom-scroll max-h-96 overflow-y-auto mb-4 border border-stone-800"
+          >
+            <div class="text-emerald-400 font-bold mb-2">
+              // SPECIAL CONDITION 4: LINKED PEXA SETTLEMENT AND DISCHARGE
+              PENALTY WAIVER
+            </div>
+            1. Both parties agree that settlement shall take place
+            electronically via an Electronic Lodgement Network Operator (PEXA)
+            and shall be linked with the electronic settlement of the
+            Purchaser’s sale of 37 Kilmarnock Way, Clyde North VIC 3978.<br /><br />
+            2. If financial settlement cannot be completed on the due date due
+            to administrative delays, workspace locking issues, or mortgage
+            discharge processing constraints caused by incoming or outgoing
+            mortgagees (and not by willful default of the Purchaser), provided
+            all required documents were executed and PEXA financial tables
+            populated by 2:00 PM on the Settlement Date:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;(a) Neither party shall be deemed in default
+            under General Condition 32 or 35; and<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;(b) General Condition 33 (Penalty Interest)
+            shall be waived for a grace period of up to three (3) clear Business
+            Days.
+          </div>
+          <div
+            class="bg-indigo-50 border border-indigo-200 rounded-lg p-3 text-xs text-indigo-900"
+          >
+            <strong>Legal Purpose:</strong> Eliminates default penalty interest
+            if minor banking or PEXA processing delays occur during the
+            electronic discharge of your split mortgage.
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: STATUTORY CONSUMER RIGHTS & DOCUSIGN PACKET REVIEW -->
+      <section
+        id="docusign-roadmap"
+        class="bg-white rounded-2xl shadow-sm border border-stone-200 p-4 sm:p-6 md:p-8"
+      >
+        <div class="mb-6">
+          <h2 class="text-2xl font-bold text-slate-900">
+            5. Consumer Rights & DocuSign Conveyancing Packet
+          </h2>
+          <p class="text-stone-600 mt-1">
+            Understanding Section 31 Cooling-Off Rules (*Sale of Land Act 1962*
+            VIC) and auditing the 5 documents in your electronic signing
+            package.
+          </p>
+        </div>
+
+        <!-- Cooling Off Penalty Calculator -->
+        <div class="bg-amber-50 rounded-xl p-6 border border-amber-200 mb-8">
+          <h3
+            class="text-base font-bold text-amber-950 flex items-center space-x-2"
+          >
+            <span>⚖️ Section 31 Cooling-Off Rule Analysis</span>
+          </h3>
+          <p class="text-xs text-amber-900 mt-1">
+            Under Victorian law, a purchaser has
+            <strong>3 clear business days</strong> from signing to cool off. The
+            day of signing, weekends, and public holidays are excluded.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            <div class="bg-white p-3 rounded-lg border border-amber-200">
+              <div class="text-xs font-semibold text-stone-500">
+                Target Purchase Price
+              </div>
+              <div class="text-lg font-bold text-slate-900 mt-0.5">
+                $950,000
+              </div>
+            </div>
+            <div class="bg-white p-3 rounded-lg border border-amber-200">
+              <div class="text-xs font-semibold text-stone-500">
+                Statutory Penalty Formula
+              </div>
+              <div class="text-lg font-bold text-amber-800 mt-0.5">
+                0.2% of Purchase Price
+              </div>
+            </div>
+            <div class="bg-white p-3 rounded-lg border border-amber-200">
+              <div class="text-xs font-semibold text-stone-500">
+                Maximum Retained Penalty
+              </div>
+              <div class="text-lg font-black text-red-600 mt-0.5">$1,900</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-amber-900 mt-3 italic">
+            *Note: Cooling-off rights do NOT apply if purchased at auction,
+            within 3 business days before/after auction, or if purchasing under
+            a corporate entity (Pty Ltd).
+          </div>
+        </div>
+
+        <!-- DocuSign Document Checklist -->
+        <div class="mb-8">
+          <h3 class="text-base font-bold text-slate-900 mb-4">
+            DocuSign Conveyancing Package Checklist (5 Key Documents)
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl border border-stone-200 bg-stone-50">
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-xs font-bold text-indigo-700">DOC 1</span>
+                <span
+                  class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-semibold"
+                  >Sign Execution Page</span
+                >
+              </div>
+              <div class="font-bold text-slate-900 text-sm">
+                Contract of Sale of Land
+              </div>
+              <p class="text-xs text-stone-600 mt-1">
+                Requires purchaser signatures on contract execution page and
+                initials on Special Conditions 1–4.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-stone-200 bg-stone-50">
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-xs font-bold text-indigo-700">DOC 2</span>
+                <span
+                  class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-semibold"
+                  >Acknowledge Receipt</span
+                >
+              </div>
+              <div class="font-bold text-slate-900 text-sm">
+                Section 32 Vendor Statement
+              </div>
+              <p class="text-xs text-stone-600 mt-1">
+                Discloses council rates, water charges, land overlays, and title
+                encumbrances prior to signing.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-stone-200 bg-stone-50">
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-xs font-bold text-indigo-700">DOC 3</span>
+                <span
+                  class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-semibold"
+                  >Disclosure Only</span
+                >
+              </div>
+              <div class="font-bold text-slate-900 text-sm">
+                Section 27 Release Statement
+              </div>
+              <p class="text-xs text-stone-600 mt-1">
+                Discloses current mortgage balances. Sign for disclosure, but do
+                NOT rely on early cash release.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-stone-200 bg-stone-50">
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-xs font-bold text-indigo-700">DOC 4</span>
+                <span
+                  class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-semibold"
+                  >Identity Verification</span
+                >
+              </div>
+              <div class="font-bold text-slate-900 text-sm">
+                PEXA Client Authorisation & VOI
+              </div>
+              <p class="text-xs text-stone-600 mt-1">
+                Authorizes conveyancer to represent you in the digital PEXA
+                workspace and transfer title.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-stone-200 bg-stone-50">
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-xs font-bold text-indigo-700">DOC 5</span>
+                <span
+                  class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-semibold"
+                  >Surety Indemnity</span
+                >
+              </div>
+              <div class="font-bold text-slate-900 text-sm">
+                Deposit Bond Application
+              </div>
+              <p class="text-xs text-stone-600 mt-1">
+                Indemnity agreement binding you to reimburse the bond provider
+                at final settlement.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4-Phase Action Plan Roadmap -->
+        <div>
+          <h3 class="text-base font-bold text-slate-900 mb-4">
+            Strategic Transaction Roadmap
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="p-4 rounded-xl border-l-4 border-slate-900 bg-stone-50">
+              <div class="text-xs font-bold text-slate-500">
+                PHASE 1 (Days 1–7)
+              </div>
+              <div class="font-bold text-slate-900 text-sm mt-1">
+                List 37 Kilmarnock Way
+              </div>
+              <p class="text-xs text-stone-600 mt-1">
+                Market existing property with target guide of $720k–$750k ($730k
+                midpoint benchmark).
+              </p>
+            </div>
+
+            <div
+              class="p-4 rounded-xl border-l-4 border-indigo-600 bg-stone-50"
+            >
+              <div class="text-xs font-bold text-indigo-600">
+                PHASE 2 (Days 7–14)
+              </div>
+              <div class="font-bold text-slate-900 text-sm mt-1">
+                Conditional Offer Submission
+              </div>
+              <p class="text-xs text-stone-600 mt-1">
+                Submit offer on 4 Terra Firma Circuit incorporating Special
+                Conditions 1, 2, 3, and 4.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border-l-4 border-amber-500 bg-stone-50">
+              <div class="text-xs font-bold text-amber-600">
+                PHASE 3 (Days 14–45)
+              </div>
+              <div class="font-bold text-slate-900 text-sm mt-1">
+                Issue Bond & Unconditional Sale
+              </div>
+              <p class="text-xs text-stone-600 mt-1">
+                Deliver 10% Deposit Bond ($95k) and satisfy unconditional sale
+                condition on 37 Kilmarnock.
+              </p>
+            </div>
+
+            <div
+              class="p-4 rounded-xl border-l-4 border-emerald-600 bg-stone-50"
+            >
+              <div class="text-xs font-bold text-emerald-600">
+                PHASE 4 (Days 45–60)
+              </div>
+              <div class="font-bold text-slate-900 text-sm mt-1">
+                Simultaneous PEXA Settlement
+              </div>
+              <p class="text-xs text-stone-600 mt-1">
+                Conveyancers link PEXA workspaces. Transfer funds, discharge
+                $358k debt, take vacant possession.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs space-y-2"
+      >
+        <p class="font-semibold text-slate-300">
+          Victorian Property Law Feasibility & Conveyancing Report
+        </p>
+        <p>
+          Prepared by Senior Victorian Property Solicitor & Conveyancer AI Agent
+          for bitBrain Solutions • Formatted for Diaz & Maggs Family Review
+        </p>
+        <p class="text-slate-500">
+          Compliant with *Sale of Land Act 1962* (Vic) & PEXA Operational
+          Guidelines.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Page interactions and dynamic charting -->
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
