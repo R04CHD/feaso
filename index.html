@@ -57,14 +57,14 @@
           <button
             type="button"
             id="mobile-menu-toggle"
-            class="lg:hidden inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-2xl text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            class="xl:hidden inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-2xl text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-400"
             aria-label="Open navigation menu"
             aria-controls="mobile-menu"
             aria-expanded="false"
           >
             <span aria-hidden="true">☰</span>
           </button>
-          <nav class="hidden lg:flex space-x-6 text-sm font-medium">
+          <nav class="hidden xl:flex space-x-4 text-sm font-medium">
             <a
               href="#executive-summary"
               class="text-slate-300 hover:text-emerald-400 transition"
@@ -95,11 +95,16 @@
               class="text-slate-300 hover:text-emerald-400 transition"
               >Roadmap & DocuSign</a
             >
+            <a
+              href="scenario2.html"
+              class="text-slate-300 hover:text-emerald-400 transition"
+              >Combined Debt</a
+            >
           </nav>
         </div>
         <nav
           id="mobile-menu"
-          class="hidden lg:hidden border-t border-slate-700 pb-3"
+          class="hidden xl:hidden border-t border-slate-700 pb-3"
           aria-label="Mobile navigation"
         >
           <a
@@ -132,6 +137,11 @@
             class="block rounded-lg px-3 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
             >Roadmap & DocuSign</a
           >
+          <a
+            href="scenario2.html"
+            class="block rounded-lg px-3 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            >Combined Debt Scenario</a
+          >
         </nav>
       </div>
     </header>
@@ -157,7 +167,7 @@
           <p class="text-stone-600 mt-2 max-w-4xl">
             This feasibility study provides a legal and financial blueprint for
             acquiring **4 Terra Firma Circuit, Clyde VIC 3978** ($950,000 guide
-            midpoint) while simultaneously selling **37 Kilmarnock Way,
+            midpoint) while simultaneously disposing of **37 Kilmarnock Way,
             Clyde North VIC 3978** ($730,000 midpoint). The strategy strictly
             excludes bridging finance, relying on linked electronic settlement
             in PEXA and an APRA-regulated Deposit Bond.
@@ -1120,8 +1130,8 @@
           Victorian Property Law Feasibility & Conveyancing Report
         </p>
         <p>
-          Prepared by Senior Victorian Property Solicitor & Conveyancer AI Agent
-          for bitBrain Solutions • Formatted for Diaz & Maggs Family Review
+          Prepared by bitBrain Solution's Senior Victorian Property Solicitor & Conveyancer AI Agent
+          • Formatted for Diaz & Maggs Family Review
         </p>
         <p class="text-slate-500">
           Compliant with *Sale of Land Act 1962* (Vic) & PEXA Operational
@@ -1131,6 +1141,7 @@
     </footer>
 
     <!-- Page interactions and dynamic charting -->
+    <script src="js/common.js" defer></script>
     <script src="js/script.js" defer></script>
   </body>
 </html>
